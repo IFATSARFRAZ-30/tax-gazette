@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>News · The Tax Gazette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4F1EA;--paper2:#EAE6DB;--desk:#D9D3C2;--ink:#1A1A1A;--bar:#1A1A1A;--onbar:#F4F1EA;--blue:#1E3A8A;--bsoft:#D9E1F5;--red:#8B1A1A;--redbg:#8B1A1A;--rsoft:#F1D3CC;--mute:#55555E;--line:#C8C0AC;
+--pf:"Playfair Display",Georgia,serif;--sf:"Source Serif 4",Georgia,serif;--mf:"IBM Plex Mono",ui-monospace,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#12192A;--paper2:#1A2338;--desk:#080D18;--ink:#ECE8DC;--bar:#060A14;--onbar:#ECE8DC;--blue:#8FB0FF;--bsoft:#22335C;--red:#FF8A70;--redbg:#7A1A1A;--rsoft:#5B2326;--mute:#A3AEC6;--line:#2B3A60}}
+:root[data-theme="dark"]{--paper:#12192A;--paper2:#1A2338;--desk:#080D18;--ink:#ECE8DC;--bar:#060A14;--onbar:#ECE8DC;--blue:#8FB0FF;--bsoft:#22335C;--red:#FF8A70;--redbg:#7A1A1A;--rsoft:#5B2326;--mute:#A3AEC6;--line:#2B3A60}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;color:var(--ink);font:18px/1.6 var(--sf);background:var(--desk) url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><g fill='none' stroke='%237F95C9' stroke-opacity='.28'><path d='M28 3l25 25-25 25L3 28z'/><circle cx='28' cy='28' r='10'/><path d='M28 18v20M18 28h20'/></g></svg>");animation:drift 120s linear infinite}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.sheet{max-width:1400px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 0 2px var(--ink),0 0 70px rgba(0,0,0,.18)}
+.mono{font:600 11.5px var(--mf);letter-spacing:.14em;text-transform:uppercase}
+.bar{background:var(--bar);color:var(--onbar);font:500 12px var(--mf);padding:9px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bar b{background:var(--redbg);color:#fff;padding:2px 8px;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.bar b:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:7px;animation:blink 1.4s infinite}
+.alert{background:var(--redbg);color:#fff;display:flex;align-items:center;overflow:hidden;font:600 13px var(--sf)}
+.alert>b{flex:none;background:#fff;color:#7A1A1A;font:700 11px var(--mf);letter-spacing:.14em;padding:8px 14px;text-transform:uppercase}
+.alert div{white-space:nowrap;overflow:hidden;flex:1}
+.alert span{display:inline-flex;gap:60px;padding:8px 0 8px 30px;animation:mq 55s linear infinite}
+.alert:hover span{animation-play-state:paused}
+.mast{text-align:center;padding:22px 16px 6px}
+.mast h1{font:900 clamp(44px,9vw,112px)/1 var(--pf);letter-spacing:-.02em;text-transform:uppercase;margin:8px 0 4px;animation:dropin 1s .15s cubic-bezier(.2,.8,.2,1) backwards}
+.nav{display:flex;justify-content:center;gap:clamp(14px,3.5vw,44px);margin:16px 24px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:11px 0;font:700 13.5px var(--mf);text-transform:uppercase;letter-spacing:.09em;flex-wrap:wrap;animation:fade 1s .5s backwards}
+.nav a{padding-bottom:3px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s,transform .2s}
+.nav a:hover,.nav a.on{color:var(--red);border-color:var(--red)}
+.nav a:hover{transform:translateY(-2px)}
+main{padding:30px 40px 56px;min-width:0}
+.sec{font:900 clamp(34px,5vw,52px)/1.05 var(--pf);margin:0;text-transform:uppercase;letter-spacing:.01em}
+.sec:after{content:"";display:block;width:64px;height:5px;background:var(--redbg);margin:10px 0 12px}
+.sub{font:italic 20px/1.4 var(--pf);color:var(--mute);margin:0 0 26px}
+.h3{font:900 28px/1.1 var(--pf);text-transform:uppercase;margin:0 0 4px}
+.h3:after{content:"";display:block;width:64px;height:5px;background:var(--redbg);margin:8px 0 18px}
+.kick{color:var(--red)}
+.kick:before{content:"";display:inline-block;width:9px;height:9px;background:var(--red);margin-right:8px;vertical-align:1px}
+.dt{font:500 12px var(--mf);color:var(--mute)}
+.btn{display:inline-block;font:700 12.5px var(--mf);letter-spacing:.09em;text-transform:uppercase;background:var(--redbg);color:#fff;padding:11px 18px;border:0;cursor:pointer;position:relative;overflow:hidden;transition:background .2s,transform .2s}
+.btn:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+.btn:after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:rgba(255,255,255,.28);transform:skewX(-20deg);transition:left .55s}
+.btn:hover:after{left:130%}
+.gl{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dashed var(--red);text-underline-offset:4px}
+.gl:hover{color:var(--red)}
+svg :is(path,circle,ellipse,rect){stroke-linecap:round;stroke-linejoin:round}
+svg .r{stroke:var(--red)}
+
+/* newspaper grid: compact cards in two columns */
+.ngrid{display:grid;grid-template-columns:1fr 1fr;border-top:3px double var(--ink)}
+.ncard{display:grid;grid-template-columns:168px 1fr;gap:18px;align-items:start;padding:18px 26px 20px 0;border-bottom:1px dashed var(--line);transition:transform .25s}
+.ncard:nth-child(even){padding:18px 0 20px 26px;border-left:1px solid var(--ink)}
+.ncard:nth-last-child(-n+2){border-bottom:0}
+.ncard:hover{transform:translateY(-3px)}
+.npic,.fpic{border:2px solid var(--ink);border-bottom:4px solid var(--redbg);background:var(--bsoft);color:var(--ink);overflow:hidden;transition:transform .3s}
+.npic{height:118px}
+.ncard:hover .npic{transform:rotate(-1.5deg) scale(1.03)}
+.npic svg,.fpic svg{width:100%;height:100%;display:block;animation:bob 6s ease-in-out infinite}
+.ncard .mono{font-size:10.5px}
+.ncard h2{font:700 19px/1.22 var(--pf);margin:4px 0 5px}
+.ncard:hover h2{color:var(--red)}
+.ncard p{margin:0 0 6px;color:var(--mute);font-size:15px;line-height:1.45}
+.ncard .dt{font-size:11px}
+.more{display:inline-block;margin-left:10px;font:700 11px var(--mf);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);transition:transform .2s,color .2s}
+.ncard:hover .more{transform:translateX(5px);color:var(--red)}
+
+/* one opened story / guide */
+.full{max-width:780px;margin:0 auto}
+.back{display:inline-block;font:700 12.5px var(--mf);letter-spacing:.09em;text-transform:uppercase;color:var(--blue);border-bottom:2px solid var(--red);margin-bottom:22px;transition:transform .2s,color .2s}
+.back:hover{color:var(--red);transform:translateX(-4px)}
+.fpic{height:250px;margin-bottom:20px}
+.full h1{font:900 clamp(30px,4.6vw,50px)/1.08 var(--pf);margin:10px 0 14px;letter-spacing:-.01em}
+.deck{font:italic 21px/1.4 var(--pf);color:var(--mute);margin:0 0 14px}
+.by{display:flex;gap:12px;flex-wrap:wrap;border-block:1px solid var(--line);padding:7px 0;margin-bottom:20px;font:500 12px var(--mf);color:var(--mute)}
+.by b{color:var(--red)}
+.body h2{font:700 24px/1.2 var(--pf);margin:26px 0 8px}
+.body p{margin:0 0 16px}
+.body ul,.body ol{margin:0 0 16px;padding-left:24px}.body li{margin-bottom:6px}
+.body>p:first-child::first-letter{font:900 4.1rem/.82 var(--pf);float:left;padding:6px 12px 0 0;color:var(--red)}
+.body a:not(.btn){text-decoration:underline;color:var(--blue)}
+.eg{border:2px solid var(--ink);border-left:6px solid var(--redbg);background:var(--paper2);padding:14px 18px;margin:0 0 18px;font-size:16.5px}
+.eg b{font:700 11px var(--mf);letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+.eg table{border-collapse:collapse;width:100%;margin-top:6px}
+.eg td{padding:5px 0;border-bottom:1px dotted var(--mute);font-size:16px}.eg td:last-child{text-align:right;font-family:var(--mf);font-size:13.5px}
+.keep{margin-top:34px;border-top:3px double var(--ink);padding-top:14px}
+.keep h3{font:900 20px var(--pf);text-transform:uppercase;margin:0 0 6px}
+.keep a{display:block;padding:10px 0;border-bottom:1px dashed var(--line);font:700 19px/1.3 var(--pf);transition:transform .25s,color .2s}
+.keep a:hover{color:var(--red);transform:translateX(6px)}
+.keep small{display:block;font:500 11px var(--mf);color:var(--red);letter-spacing:.08em;text-transform:uppercase}
+
+footer{background:var(--bar);color:#bdb9ad;border-top:5px solid var(--redbg);padding:26px 24px;font:500 12px/1.8 var(--mf);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{margin-right:16px;text-decoration:underline}
+footer span:first-child a{margin-right:0}
+#pop{position:fixed;display:none;z-index:60;max-width:290px;background:var(--bar);color:var(--onbar);padding:12px 14px;font:15px/1.45 var(--sf);box-shadow:4px 4px 0 var(--red)}
+#pop b{display:block;font:700 11px var(--mf);letter-spacing:.1em;text-transform:uppercase;color:#E8B64A;margin-bottom:4px}
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:var(--redbg);z-index:70}
+::selection{background:var(--redbg);color:#fff}
+
+/* motion */
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes drift{to{background-position:560px 280px}}
+@keyframes blink{50%{opacity:.25}}
+@keyframes dropin{from{opacity:0;transform:translateY(-26px);letter-spacing:.12em}}
+@keyframes fade{from{opacity:0}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}}
+@keyframes draw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+@keyframes bob{50%{transform:translateY(-4px)}}
+@keyframes popin{from{opacity:0;transform:translateY(24px) scale(.96)}}
+.ptop>*{animation:up .7s backwards}.ptop>:nth-child(2){animation-delay:.1s}.ptop>:nth-child(3){animation-delay:.2s}
+[data-rv]{opacity:0}
+[data-rv].in{opacity:1;animation:up .7s var(--d,0s) backwards}
+.in .npic :is(path,circle,ellipse,rect),.full.go .fpic :is(path,circle,ellipse,rect){animation:draw 1.4s ease .2s both}
+.full.go>*{animation:up .7s backwards}
+.full.go>:nth-child(2){animation-delay:.08s}.full.go>:nth-child(3){animation-delay:.16s}.full.go>:nth-child(4){animation-delay:.24s}.full.go>:nth-child(5){animation-delay:.32s}.full.go>:nth-child(6){animation-delay:.4s}.full.go>:nth-child(7){animation-delay:.48s}
+
+@media (max-width:820px){
+ main{padding:24px 18px 40px}
+ .ngrid{grid-template-columns:1fr}
+ .ncard,.ncard:nth-child(even){padding:18px 0;border-left:0;border-bottom:1px dashed var(--line);grid-template-columns:120px 1fr;gap:14px}
+ .ncard:nth-last-child(-n+2){border-bottom:1px dashed var(--line)}
+ .ncard:last-child{border-bottom:0}
+ .npic{height:96px}
+ .fpic{height:190px}
+}
+@media (max-width:420px){.ncard,.ncard:nth-child(even){grid-template-columns:1fr}.npic{height:130px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}[data-rv]{opacity:1}}
+
+
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="sheet">
+<div class="bar"><span id="dt"></span><span><b id="bd">Filing deadline 31 Oct</b></span></div>
+<div class="alert"><b>Latest</b><div><span><i>Return filing date extended to 31 October 2026 &nbsp;·&nbsp; Finance Act 2026 notified for tax year 2026-27 &nbsp;·&nbsp; Revised salaried slabs apply from 1 July 2026</i><i>Return filing date extended to 31 October 2026 &nbsp;·&nbsp; Finance Act 2026 notified for tax year 2026-27 &nbsp;·&nbsp; Revised salaried slabs apply from 1 July 2026</i></span></div></div>
+<header class="mast"><h1><a href="index.html">The Tax Gazette</a></h1></header>
+<nav class="nav" aria-label="Sections"><a href="index.html">Front page</a><a class="on" href="news.html" aria-current="page">News</a><a href="tools.html">Tools &amp; Explainers</a><a href="sro.html">SRO Tracker</a></nav>
+<main>
+<section id="hub">
+  <div class="ptop"><h2 class="sec">News</h2><p class="sub">Reports from the Gazette desk on deadlines, the Finance Act and withholding tax.</p></div>
+  <div class="ngrid"><a class="ncard" href="#return-deadline-2026" data-slug="return-deadline-2026" data-rv style="--d:0.0s">
+  <div class="npic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><rect pathLength="1" x="70" y="32" width="160" height="108"/><path pathLength="1" d="M70 62h160M105 20v24M195 20v24"/><path pathLength="1" d="M92 82h20M130 82h20M168 82h20M92 104h20M130 104h20"/><circle pathLength="1" class="r" cx="178" cy="108" r="14"/><path pathLength="1" class="r" d="M171 108l5 5 9-10"/></svg></div>
+  <div><span class="mono kick">Deadlines</span><h2>FBR moves the return deadline to 31 October</h2><p>The date has now been pushed twice this season. Here is what to check before you file.</p><span class="dt">Tax year 2026 returns</span><span class="more">Read story →</span></div>
+</a>
+<a class="ncard" href="#finance-act-2026-notified" data-slug="finance-act-2026-notified" data-rv style="--d:0.12s">
+  <div class="npic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path pathLength="1" d="M95 20h80l30 30v100H95z"/><path pathLength="1" d="M175 20v30h30"/><path pathLength="1" d="M115 72h70M115 92h70M115 112h40"/><circle pathLength="1" class="r" cx="190" cy="126" r="18"/><path pathLength="1" class="r" d="M190 116v20M184 122h12"/></svg></div>
+  <div><span class="mono kick">Budget</span><h2>Finance Act 2026 notified: key changes for tax year 2026-27</h2><p>Revised salaried slabs, super tax and withholding rates. Here is what changes for you.</p><span class="dt">1 July 2026</span><span class="more">Read story →</span></div>
+</a>
+<a class="ncard" href="#super-tax-2026" data-slug="super-tax-2026" data-rv style="--d:0.06s">
+  <div class="npic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path pathLength="1" d="M50 145h200"/><path pathLength="1" d="M80 145v-30h30v30M130 145V90h30v55M180 145V60h30v85"/><path pathLength="1" class="r" d="M80 84l50-34 30 18 56-36"/><path pathLength="1" class="r" d="M216 32h-13M216 32v13"/></svg></div>
+  <div><span class="mono kick">High earners</span><h2>Finance Act 2026: what changed for high earners</h2><p>Surcharge and super tax changes, with links to the Act.</p><span class="dt">15 July 2026</span><span class="more">Read story →</span></div>
+</a>
+<a class="ncard" href="#non-filer-wht-explained" data-slug="non-filer-wht-explained" data-rv style="--d:0.18s">
+  <div class="npic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><g transform="translate(0 28)"><ellipse pathLength="1" cx="100" cy="92" rx="42" ry="12"/><ellipse pathLength="1" cx="100" cy="76" rx="42" ry="12"/><ellipse pathLength="1" cx="100" cy="60" rx="42" ry="12"/><circle pathLength="1" class="r" cx="200" cy="52" r="30"/><path pathLength="1" class="r" d="M188 66l24-28"/><circle pathLength="1" class="r" cx="190" cy="42" r="3.5"/><circle pathLength="1" class="r" cx="210" cy="62" r="3.5"/></g></svg></div>
+  <div><span class="mono kick">Withholding tax</span><h2>Why non-filers pay more</h2><p>What Active Taxpayers List status changes at the bank, on property and on vehicles.</p><span class="dt">Explainer</span><span class="more">Read story →</span></div>
+</a>
+<a class="ncard" href="#payslip-after-new-slabs" data-slug="payslip-after-new-slabs" data-rv style="--d:0.12s">
+  <div class="npic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><rect pathLength="1" x="85" y="22" width="130" height="126"/><path pathLength="1" d="M105 52h90M105 72h90M105 92h50"/><path pathLength="1" class="r" d="M105 120h90"/><circle pathLength="1" class="r" cx="182" cy="92" r="9"/><path pathLength="1" class="r" d="M178 92h8"/></svg></div>
+  <div><span class="mono kick">Salaried taxpayers</span><h2>What to check on your payslip after the new slabs</h2><p>Your employer deducts tax every month. Here is how to tell whether the deduction looks right.</p><span class="dt">Guide</span><span class="more">Read story →</span></div>
+</a>
+<a class="ncard" href="#filing-documents-checklist" data-slug="filing-documents-checklist" data-rv style="--d:0.24s">
+  <div class="npic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><rect pathLength="1" x="75" y="22" width="150" height="128"/><path pathLength="1" class="r" d="M95 56l8 8 14-16M95 92l8 8 14-16"/><path pathLength="1" d="M132 56h70M132 92h70M95 128h107"/></svg></div>
+  <div><span class="mono kick">Filing guide</span><h2>Documents to keep ready before you file your return</h2><p>A short checklist that saves time when you sit down to file on IRIS.</p><span class="dt">Guide</span><span class="more">Read story →</span></div>
+</a>
+<a class="ncard" href="#following-new-sros" data-slug="following-new-sros" data-rv style="--d:0.18s">
+  <div class="npic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path pathLength="1" d="M100 24h100v122H100z"/><path pathLength="1" d="M118 46h64M118 62h64"/><circle pathLength="1" class="r" cx="150" cy="106" r="24"/><path pathLength="1" class="r" d="M138 106l9 9 17-18"/></svg></div>
+  <div><span class="mono kick">SRO Tracker</span><h2>How to follow new SROs without reading every notification</h2><p>A short guide to what an SRO is, why it matters and how our tracker helps.</p><span class="dt">Guide</span><span class="more">Read story →</span></div>
+</a>
+<a class="ncard" href="#withholding-certificates" data-slug="withholding-certificates" data-rv style="--d:0.3s">
+  <div class="npic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path pathLength="1" d="M58 46h64l16 20h104v82H58z"/><path pathLength="1" d="M58 78h184"/><path pathLength="1" class="r" d="M88 112h70M88 128h40"/></svg></div>
+  <div><span class="mono kick">Withholding tax</span><h2>Keep your withholding tax statements, they are worth money</h2><p>Tax deducted from you in advance can be counted against your final bill, but only if you can show it.</p><span class="dt">Guide</span><span class="more">Read story →</span></div>
+</a>
+</div>
+</section>
+<article class="full" id="s-return-deadline-2026" hidden>
+  <a class="back" href="#">← All news</a>
+  <div class="fpic"></div>
+  <span class="mono kick">Deadlines</span>
+  <h1>FBR moves the return deadline to 31 October</h1>
+  <p class="deck">The date has now been pushed twice this season. Here is what to check before you file.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>Tax year 2026 returns</span></div>
+  <div class="body"><p>The Federal Board of Revenue has extended the filing deadline for tax year 2026 returns to 31 October, the second extension this season. If you have not filed yet, the first thing to check is whether you are on the <button class="gl" data-d="FBR&#x27;s published list of taxpayers who have filed their return. Being on it means lower withholding rates on bank transactions, property and vehicles.">Active Taxpayers List</button>, because that status decides how much <button class="gl" data-d="Tax deducted in advance by the person paying you, or by your bank, and counted against your final tax bill.">withholding tax</button> is taken from you for the rest of the year.</p><p>File through the <button class="gl" data-d="FBR&#x27;s online portal where individuals and companies submit their annual returns.">IRIS</button> portal, keep your salary slips and bank statements handy, and do not count on another extension.</p></div>
+  <div class="keep"><h3>Keep reading</h3><a href="#finance-act-2026-notified"><small>Budget</small>Finance Act 2026 notified: key changes for tax year 2026-27</a><a href="#filing-documents-checklist"><small>Filing guide</small>Documents to keep ready before you file your return</a></div>
+</article>
+<article class="full" id="s-finance-act-2026-notified" hidden>
+  <a class="back" href="#">← All news</a>
+  <div class="fpic"></div>
+  <span class="mono kick">Budget</span>
+  <h1>Finance Act 2026 notified: key changes for tax year 2026-27</h1>
+  <p class="deck">Revised salaried slabs, super tax and withholding rates. Here is what changes for you.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>1 July 2026</span></div>
+  <div class="body"><p>The Finance Act 2026 has been notified for tax year 2026-27, which means the changes announced in the budget are now law. The revised salaried <button class="gl" data-d="A band of income taxed at one rate. As your income rises you move through the bands, and each band is taxed at its own rate.">slabs</button> apply from 1 July 2026, so they affect the salary you receive now, not only the return you will file next year.</p><p>The Act also changes the <button class="gl" data-d="An extra tax charged on top of normal income tax once income reaches a set level.">super tax</button> and the rates of <button class="gl" data-d="Tax deducted in advance by the person paying you, or by your bank, and counted against your final tax bill.">withholding tax</button>. Salaried people should look at the slabs first, because they decide how much tax is deducted from each payslip. Business owners should read the withholding and super tax provisions, since those change what is deducted from their payments and what is due at the end of the year.</p><p>Key in your own salary in the <a href="tools.html#calculator">tax calculator</a> to see what the new slabs mean for your pay. The result is an estimate, so compare it with your payslip.</p></div>
+  <div class="keep"><h3>Keep reading</h3><a href="#super-tax-2026"><small>High earners</small>Finance Act 2026: what changed for high earners</a><a href="#payslip-after-new-slabs"><small>Salaried taxpayers</small>What to check on your payslip after the new slabs</a></div>
+</article>
+<article class="full" id="s-super-tax-2026" hidden>
+  <a class="back" href="#">← All news</a>
+  <div class="fpic"></div>
+  <span class="mono kick">High earners</span>
+  <h1>Finance Act 2026: what changed for high earners</h1>
+  <p class="deck">Surcharge and super tax changes, with links to the Act.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>15 July 2026</span></div>
+  <div class="body"><p>The Finance Act 2026 changes the <button class="gl" data-d="An additional percentage added to the income tax you already owe. It applies only to higher incomes.">surcharge</button> and the <button class="gl" data-d="An extra tax charged on top of normal income tax once income reaches a set level.">super tax</button> that apply to higher incomes. Both are charged on top of ordinary income tax, which is why a change to either one alters your total bill even when the normal slabs stay the same.</p><p>A surcharge is worked out as a percentage of the income tax you already owe, while super tax is worked out on income, at rates that depend on the income level. If your income sits near the edge of a band, a small change in these rules can matter more than a change in the slabs themselves, so it is worth checking where you now fall.</p><p>Our full story sets out each change and links to the Act, so you can read the wording for yourself. The calculator on the Tools page covers the salaried slabs only and does not add the surcharge or super tax, so a high earner's real bill will be higher than its estimate.</p></div>
+  <div class="keep"><h3>Keep reading</h3><a href="#finance-act-2026-notified"><small>Budget</small>Finance Act 2026 notified: key changes for tax year 2026-27</a><a href="#non-filer-wht-explained"><small>Withholding tax</small>Why non-filers pay more</a></div>
+</article>
+<article class="full" id="s-non-filer-wht-explained" hidden>
+  <a class="back" href="#">← All news</a>
+  <div class="fpic"></div>
+  <span class="mono kick">Withholding tax</span>
+  <h1>Why non-filers pay more</h1>
+  <p class="deck">What Active Taxpayers List status changes at the bank, on property and on vehicles.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>Explainer</span></div>
+  <div class="body"><p>Filing your return is what puts you on the <button class="gl" data-d="FBR&#x27;s published list of taxpayers who have filed their return. Being on it means lower withholding rates on bank transactions, property and vehicles.">Active Taxpayers List</button>, and that status decides the <button class="gl" data-d="Tax deducted in advance by the person paying you, or by your bank, and counted against your final tax bill.">withholding tax</button> rates you face through the year. A person who is not on the list is charged higher rates on the same transaction, so the cost of not filing is paid in small amounts each time you use the bank, buy property or register a vehicle.</p><p>The higher rates are deducted at the time of the transaction by the bank, the registrar or the seller, so you feel the cost straight away. Most people only notice the difference when they compare a deduction with what a filer paid on a similar transaction.</p><p>The remedy is simple: file your return and confirm that your name appears on the list. The list can take a short while to update after you file, so do not leave it to the last week of the deadline.</p></div>
+  <div class="keep"><h3>Keep reading</h3><a href="#return-deadline-2026"><small>Deadlines</small>FBR moves the return deadline to 31 October</a><a href="#withholding-certificates"><small>Withholding tax</small>Keep your withholding tax statements, they are worth money</a></div>
+</article>
+<article class="full" id="s-payslip-after-new-slabs" hidden>
+  <a class="back" href="#">← All news</a>
+  <div class="fpic"></div>
+  <span class="mono kick">Salaried taxpayers</span>
+  <h1>What to check on your payslip after the new slabs</h1>
+  <p class="deck">Your employer deducts tax every month. Here is how to tell whether the deduction looks right.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>Guide</span></div>
+  <div class="body"><p>Every month your employer deducts income tax from your salary and pays it to the government on your behalf. This is an advance against your tax for the whole year, and it is worked out using the salaried <button class="gl" data-d="A band of income taxed at one rate. As your income rises you move through the bands, and each band is taxed at its own rate.">slabs</button>. Because the revised slabs apply from 1 July 2026, the tax line on your payslip may differ from what it was in the previous tax year.</p><p>The simplest check is to take your monthly salary, enter it in the <a href="tools.html#calculator">salary tax calculator</a> and compare the monthly tax it shows with the tax line on your payslip. The two will not always match to the rupee, because your payslip may include allowances, bonuses or deductions that the calculator does not know about, but a large gap is a reason to ask questions.</p><p>If the difference looks too big, ask your payroll or accounts department which slabs they used and from which month. Keep every payslip, because the total tax deducted over the year is the figure you will rely on when you prepare your return.</p></div>
+  <div class="keep"><h3>Keep reading</h3><a href="#withholding-certificates"><small>Withholding tax</small>Keep your withholding tax statements, they are worth money</a><a href="#filing-documents-checklist"><small>Filing guide</small>Documents to keep ready before you file your return</a></div>
+</article>
+<article class="full" id="s-filing-documents-checklist" hidden>
+  <a class="back" href="#">← All news</a>
+  <div class="fpic"></div>
+  <span class="mono kick">Filing guide</span>
+  <h1>Documents to keep ready before you file your return</h1>
+  <p class="deck">A short checklist that saves time when you sit down to file on IRIS.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>Guide</span></div>
+  <div class="body"><p>Most of the time spent filing a return goes into looking for papers, not into the filing itself. If you collect your documents first, the actual entry on the <button class="gl" data-d="FBR&#x27;s online portal where individuals and companies submit their annual returns.">IRIS</button> portal is much faster and you are less likely to leave something out.</p><p>Start with your income: salary slips or an annual salary certificate from your employer, and records of any other income such as rent, profit or business receipts. Then gather the tax already deducted from you, which is covered by the statements and certificates you receive from employers and banks. Finally, collect details of what you own and owe, such as property, vehicles, bank accounts and loans, because the return asks you to declare your assets and liabilities.</p><p>Check that your identity and contact details with <button class="gl" data-d="The Federal Board of Revenue, the authority that collects federal taxes in Pakistan.">FBR</button> are current before you start. A return filed with the right documents in front of you is easier to defend later if anyone asks a question about it.</p></div>
+  <div class="keep"><h3>Keep reading</h3><a href="#return-deadline-2026"><small>Deadlines</small>FBR moves the return deadline to 31 October</a><a href="#withholding-certificates"><small>Withholding tax</small>Keep your withholding tax statements, they are worth money</a></div>
+</article>
+<article class="full" id="s-following-new-sros" hidden>
+  <a class="back" href="#">← All news</a>
+  <div class="fpic"></div>
+  <span class="mono kick">SRO Tracker</span>
+  <h1>How to follow new SROs without reading every notification</h1>
+  <p class="deck">A short guide to what an SRO is, why it matters and how our tracker helps.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>Guide</span></div>
+  <div class="body"><p>An <button class="gl" data-d="A Statutory Regulatory Order: a government notice that changes how a tax rule works.">SRO</button> is a notice issued under powers given by a tax law. It is how rules are changed between budgets: an SRO can grant or withdraw an exemption, change a rate for a particular class of goods or people, or set out a procedure. Because they are issued throughout the year, a rule that applied last month may not apply today.</p><p>Reading the original notification is difficult for most people, because it is written to fit exactly into the language of the law it amends. The useful questions are plain ones: which tax does it concern, who does it affect, what changes, and from when.</p><p>The <a href="sro.html">SRO Tracker</a> lists recent orders by tax type. Open any order to see a plain-English explanation of what it does, and use the link inside it to read the original PDF for the exact wording.</p></div>
+  <div class="keep"><h3>Keep reading</h3><a href="#finance-act-2026-notified"><small>Budget</small>Finance Act 2026 notified: key changes for tax year 2026-27</a><a href="#super-tax-2026"><small>High earners</small>Finance Act 2026: what changed for high earners</a></div>
+</article>
+<article class="full" id="s-withholding-certificates" hidden>
+  <a class="back" href="#">← All news</a>
+  <div class="fpic"></div>
+  <span class="mono kick">Withholding tax</span>
+  <h1>Keep your withholding tax statements, they are worth money</h1>
+  <p class="deck">Tax deducted from you in advance can be counted against your final bill, but only if you can show it.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>Guide</span></div>
+  <div class="body"><p>When a bank, an employer or another payer deducts <button class="gl" data-d="Tax deducted in advance by the person paying you, or by your bank, and counted against your final tax bill.">withholding tax</button> from you, that amount is usually credited against the tax you owe for the year, so it is not lost. In some cases the deduction is treated as the final tax on that income, and in others it is only an advance that you adjust in your return. Either way, the deduction is only useful to you if you can prove it was made.</p><p>Payers are normally required to give you a statement or certificate showing what was deducted. Collect these as they arrive, such as the annual statement from your bank or the certificate from your employer, and file them together with your payslips.</p><p>When you prepare your return, add up the tax deducted from all sources and enter it in the return. If you cannot find a statement, ask the payer for a copy before the filing deadline, because a payer may take some time to issue it.</p></div>
+  <div class="keep"><h3>Keep reading</h3><a href="#non-filer-wht-explained"><small>Withholding tax</small>Why non-filers pay more</a><a href="#filing-documents-checklist"><small>Filing guide</small>Documents to keep ready before you file your return</a></div>
+</article>
+
+</main>
+<footer><span>The Tax Gazette is a project of <a href="https://ifatassociates.com">Ifat Associates</a>.</span><span><a href="index.html">Front page</a><a href="news.html">News</a><a href="tools.html">Tools &amp; Explainers</a><a href="sro.html">SRO Tracker</a></span></footer>
+</div>
+<div id="pop" role="tooltip"></div>
+<script>
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('dt').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+var dd=Math.ceil((new Date(2026,9,31,23,59,59)-Date.now())/864e5);
+$('bd').textContent=dd>0?'Filing deadline: '+dd+(dd===1?' day':' days')+' left':'Filing deadline passed';
+
+/* glossary pop-up */
+var pop=$('pop');
+document.addEventListener('click',function(e){
+  var g=e.target.closest&&e.target.closest('.gl');
+  if(!g){pop.style.display='none';return}
+  e.stopPropagation();var r=g.getBoundingClientRect();
+  pop.innerHTML='<b>'+g.textContent+'</b>'+g.dataset.d;pop.style.display='block';
+  pop.style.left=Math.max(10,Math.min(r.left,innerWidth-310))+'px';pop.style.top=(r.bottom+8)+'px';
+});
+addEventListener('scroll',function(){pop.style.display='none'},{passive:true});
+
+/* scroll progress + reveal */
+var pg=$('prog');
+addEventListener('scroll',function(){var d=document.documentElement,m=d.scrollHeight-d.clientHeight;pg.style.width=(m>0?d.scrollTop/m*100:0)+'%'},{passive:true});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+function watch(root){[].forEach.call((root||document).querySelectorAll('[data-rv]:not(.seen)'),function(el){el.classList.add('seen');io.observe(el)})}
+watch();
+
+/* hash router: #slug opens a story or guide in place of the list */
+function initRoute(hubId){
+  var hub=$(hubId),fulls=[].slice.call(document.querySelectorAll('.full')),base=document.title;
+  function route(){
+    var h=decodeURIComponent(location.hash.slice(1)),a=h?$('s-'+h):null;
+    fulls.forEach(function(x){x.hidden=true;x.classList.remove('go')});
+    pop.style.display='none';
+    if(a&&a.classList.contains('full')){
+      hub.hidden=true;a.hidden=false;
+      var fp=a.querySelector('.fpic'),src=document.querySelector('[data-slug="'+h+'"] .npic');
+      if(src&&!fp.firstChild)fp.innerHTML=src.innerHTML;
+      void a.offsetWidth;a.classList.add('go');
+      document.title=a.querySelector('h1').textContent+' · The Tax Gazette';
+      scrollTo(0,0);
+    }else{
+      hub.hidden=false;document.title=base;
+      var t=h?$(h):null;
+      if(t)setTimeout(function(){t.scrollIntoView()},40);else scrollTo(0,0);
+      watch(hub);
+    }
+  }
+  addEventListener('hashchange',route);route();
+}
+
+initRoute('hub');
+</script>
+</body>
+</html>

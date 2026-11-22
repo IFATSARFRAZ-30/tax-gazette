@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SRO Tracker · The Tax Gazette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4F1EA;--paper2:#EAE6DB;--desk:#D9D3C2;--ink:#1A1A1A;--bar:#1A1A1A;--onbar:#F4F1EA;--blue:#1E3A8A;--bsoft:#D9E1F5;--red:#8B1A1A;--redbg:#8B1A1A;--rsoft:#F1D3CC;--mute:#55555E;--line:#C8C0AC;
+--pf:"Playfair Display",Georgia,serif;--sf:"Source Serif 4",Georgia,serif;--mf:"IBM Plex Mono",ui-monospace,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#12192A;--paper2:#1A2338;--desk:#080D18;--ink:#ECE8DC;--bar:#060A14;--onbar:#ECE8DC;--blue:#8FB0FF;--bsoft:#22335C;--red:#FF8A70;--redbg:#7A1A1A;--rsoft:#5B2326;--mute:#A3AEC6;--line:#2B3A60}}
+:root[data-theme="dark"]{--paper:#12192A;--paper2:#1A2338;--desk:#080D18;--ink:#ECE8DC;--bar:#060A14;--onbar:#ECE8DC;--blue:#8FB0FF;--bsoft:#22335C;--red:#FF8A70;--redbg:#7A1A1A;--rsoft:#5B2326;--mute:#A3AEC6;--line:#2B3A60}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;color:var(--ink);font:18px/1.6 var(--sf);background:var(--desk) url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><g fill='none' stroke='%237F95C9' stroke-opacity='.28'><path d='M28 3l25 25-25 25L3 28z'/><circle cx='28' cy='28' r='10'/><path d='M28 18v20M18 28h20'/></g></svg>");animation:drift 120s linear infinite}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.sheet{max-width:1400px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 0 2px var(--ink),0 0 70px rgba(0,0,0,.18)}
+.mono{font:600 11.5px var(--mf);letter-spacing:.14em;text-transform:uppercase}
+.bar{background:var(--bar);color:var(--onbar);font:500 12px var(--mf);padding:9px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bar b{background:var(--redbg);color:#fff;padding:2px 8px;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.bar b:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:7px;animation:blink 1.4s infinite}
+.alert{background:var(--redbg);color:#fff;display:flex;align-items:center;overflow:hidden;font:600 13px var(--sf)}
+.alert>b{flex:none;background:#fff;color:#7A1A1A;font:700 11px var(--mf);letter-spacing:.14em;padding:8px 14px;text-transform:uppercase}
+.alert div{white-space:nowrap;overflow:hidden;flex:1}
+.alert span{display:inline-flex;gap:60px;padding:8px 0 8px 30px;animation:mq 55s linear infinite}
+.alert:hover span{animation-play-state:paused}
+.mast{text-align:center;padding:22px 16px 6px}
+.mast h1{font:900 clamp(44px,9vw,112px)/1 var(--pf);letter-spacing:-.02em;text-transform:uppercase;margin:8px 0 4px;animation:dropin 1s .15s cubic-bezier(.2,.8,.2,1) backwards}
+.nav{display:flex;justify-content:center;gap:clamp(14px,3.5vw,44px);margin:16px 24px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:11px 0;font:700 13.5px var(--mf);text-transform:uppercase;letter-spacing:.09em;flex-wrap:wrap;animation:fade 1s .5s backwards}
+.nav a{padding-bottom:3px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s,transform .2s}
+.nav a:hover,.nav a.on{color:var(--red);border-color:var(--red)}
+.nav a:hover{transform:translateY(-2px)}
+main{padding:30px 40px 56px;min-width:0}
+.sec{font:900 clamp(34px,5vw,52px)/1.05 var(--pf);margin:0;text-transform:uppercase;letter-spacing:.01em}
+.sec:after{content:"";display:block;width:64px;height:5px;background:var(--redbg);margin:10px 0 12px}
+.sub{font:italic 20px/1.4 var(--pf);color:var(--mute);margin:0 0 26px}
+.h3{font:900 28px/1.1 var(--pf);text-transform:uppercase;margin:0 0 4px}
+.h3:after{content:"";display:block;width:64px;height:5px;background:var(--redbg);margin:8px 0 18px}
+.kick{color:var(--red)}
+.kick:before{content:"";display:inline-block;width:9px;height:9px;background:var(--red);margin-right:8px;vertical-align:1px}
+.dt{font:500 12px var(--mf);color:var(--mute)}
+.btn{display:inline-block;font:700 12.5px var(--mf);letter-spacing:.09em;text-transform:uppercase;background:var(--redbg);color:#fff;padding:11px 18px;border:0;cursor:pointer;position:relative;overflow:hidden;transition:background .2s,transform .2s}
+.btn:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+.btn:after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:rgba(255,255,255,.28);transform:skewX(-20deg);transition:left .55s}
+.btn:hover:after{left:130%}
+.gl{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dashed var(--red);text-underline-offset:4px}
+.gl:hover{color:var(--red)}
+svg :is(path,circle,ellipse,rect){stroke-linecap:round;stroke-linejoin:round}
+svg .r{stroke:var(--red)}
+
+/* newspaper grid: compact cards in two columns */
+.ngrid{display:grid;grid-template-columns:1fr 1fr;border-top:3px double var(--ink)}
+.ncard{display:grid;grid-template-columns:168px 1fr;gap:18px;align-items:start;padding:18px 26px 20px 0;border-bottom:1px dashed var(--line);transition:transform .25s}
+.ncard:nth-child(even){padding:18px 0 20px 26px;border-left:1px solid var(--ink)}
+.ncard:nth-last-child(-n+2){border-bottom:0}
+.ncard:hover{transform:translateY(-3px)}
+.npic,.fpic{border:2px solid var(--ink);border-bottom:4px solid var(--redbg);background:var(--bsoft);color:var(--ink);overflow:hidden;transition:transform .3s}
+.npic{height:118px}
+.ncard:hover .npic{transform:rotate(-1.5deg) scale(1.03)}
+.npic svg,.fpic svg{width:100%;height:100%;display:block;animation:bob 6s ease-in-out infinite}
+.ncard .mono{font-size:10.5px}
+.ncard h2{font:700 19px/1.22 var(--pf);margin:4px 0 5px}
+.ncard:hover h2{color:var(--red)}
+.ncard p{margin:0 0 6px;color:var(--mute);font-size:15px;line-height:1.45}
+.ncard .dt{font-size:11px}
+.more{display:inline-block;margin-left:10px;font:700 11px var(--mf);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);transition:transform .2s,color .2s}
+.ncard:hover .more{transform:translateX(5px);color:var(--red)}
+
+/* one opened story / guide */
+.full{max-width:780px;margin:0 auto}
+.back{display:inline-block;font:700 12.5px var(--mf);letter-spacing:.09em;text-transform:uppercase;color:var(--blue);border-bottom:2px solid var(--red);margin-bottom:22px;transition:transform .2s,color .2s}
+.back:hover{color:var(--red);transform:translateX(-4px)}
+.fpic{height:250px;margin-bottom:20px}
+.full h1{font:900 clamp(30px,4.6vw,50px)/1.08 var(--pf);margin:10px 0 14px;letter-spacing:-.01em}
+.deck{font:italic 21px/1.4 var(--pf);color:var(--mute);margin:0 0 14px}
+.by{display:flex;gap:12px;flex-wrap:wrap;border-block:1px solid var(--line);padding:7px 0;margin-bottom:20px;font:500 12px var(--mf);color:var(--mute)}
+.by b{color:var(--red)}
+.body h2{font:700 24px/1.2 var(--pf);margin:26px 0 8px}
+.body p{margin:0 0 16px}
+.body ul,.body ol{margin:0 0 16px;padding-left:24px}.body li{margin-bottom:6px}
+.body>p:first-child::first-letter{font:900 4.1rem/.82 var(--pf);float:left;padding:6px 12px 0 0;color:var(--red)}
+.body a:not(.btn){text-decoration:underline;color:var(--blue)}
+.eg{border:2px solid var(--ink);border-left:6px solid var(--redbg);background:var(--paper2);padding:14px 18px;margin:0 0 18px;font-size:16.5px}
+.eg b{font:700 11px var(--mf);letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+.eg table{border-collapse:collapse;width:100%;margin-top:6px}
+.eg td{padding:5px 0;border-bottom:1px dotted var(--mute);font-size:16px}.eg td:last-child{text-align:right;font-family:var(--mf);font-size:13.5px}
+.keep{margin-top:34px;border-top:3px double var(--ink);padding-top:14px}
+.keep h3{font:900 20px var(--pf);text-transform:uppercase;margin:0 0 6px}
+.keep a{display:block;padding:10px 0;border-bottom:1px dashed var(--line);font:700 19px/1.3 var(--pf);transition:transform .25s,color .2s}
+.keep a:hover{color:var(--red);transform:translateX(6px)}
+.keep small{display:block;font:500 11px var(--mf);color:var(--red);letter-spacing:.08em;text-transform:uppercase}
+
+footer{background:var(--bar);color:#bdb9ad;border-top:5px solid var(--redbg);padding:26px 24px;font:500 12px/1.8 var(--mf);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{margin-right:16px;text-decoration:underline}
+footer span:first-child a{margin-right:0}
+#pop{position:fixed;display:none;z-index:60;max-width:290px;background:var(--bar);color:var(--onbar);padding:12px 14px;font:15px/1.45 var(--sf);box-shadow:4px 4px 0 var(--red)}
+#pop b{display:block;font:700 11px var(--mf);letter-spacing:.1em;text-transform:uppercase;color:#E8B64A;margin-bottom:4px}
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:var(--redbg);z-index:70}
+::selection{background:var(--redbg);color:#fff}
+
+/* motion */
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes drift{to{background-position:560px 280px}}
+@keyframes blink{50%{opacity:.25}}
+@keyframes dropin{from{opacity:0;transform:translateY(-26px);letter-spacing:.12em}}
+@keyframes fade{from{opacity:0}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}}
+@keyframes draw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+@keyframes bob{50%{transform:translateY(-4px)}}
+@keyframes popin{from{opacity:0;transform:translateY(24px) scale(.96)}}
+.ptop>*{animation:up .7s backwards}.ptop>:nth-child(2){animation-delay:.1s}.ptop>:nth-child(3){animation-delay:.2s}
+[data-rv]{opacity:0}
+[data-rv].in{opacity:1;animation:up .7s var(--d,0s) backwards}
+.in .npic :is(path,circle,ellipse,rect),.full.go .fpic :is(path,circle,ellipse,rect){animation:draw 1.4s ease .2s both}
+.full.go>*{animation:up .7s backwards}
+.full.go>:nth-child(2){animation-delay:.08s}.full.go>:nth-child(3){animation-delay:.16s}.full.go>:nth-child(4){animation-delay:.24s}.full.go>:nth-child(5){animation-delay:.32s}.full.go>:nth-child(6){animation-delay:.4s}.full.go>:nth-child(7){animation-delay:.48s}
+
+@media (max-width:820px){
+ main{padding:24px 18px 40px}
+ .ngrid{grid-template-columns:1fr}
+ .ncard,.ncard:nth-child(even){padding:18px 0;border-left:0;border-bottom:1px dashed var(--line);grid-template-columns:120px 1fr;gap:14px}
+ .ncard:nth-last-child(-n+2){border-bottom:1px dashed var(--line)}
+ .ncard:last-child{border-bottom:0}
+ .npic{height:96px}
+ .fpic{height:190px}
+}
+@media (max-width:420px){.ncard,.ncard:nth-child(even){grid-template-columns:1fr}.npic{height:130px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}[data-rv]{opacity:1}}
+
+
+.cols2{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:44px;align-items:start}
+.tools2{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{font:700 11.5px var(--mf);letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);background:var(--paper);color:var(--ink);padding:7px 13px;cursor:pointer;transition:background .2s,color .2s}
+.chips button:hover{background:var(--paper2)}
+.chips button[aria-pressed=true]{background:var(--redbg);color:#fff}
+.find{flex:1;min-width:180px;font:16px var(--sf);padding:8px 12px;border:2px solid var(--ink);background:var(--paper);color:var(--ink)}
+.list{border-top:3px double var(--ink)}
+.srow{display:grid;grid-template-columns:190px 1fr auto;gap:18px;align-items:baseline;width:100%;text-align:left;font:inherit;color:inherit;background:none;border:0;border-bottom:1px dashed var(--line);padding:16px 8px;cursor:pointer;transition:background .2s,padding .25s}
+.srow:hover{background:var(--paper2);padding-left:16px}
+.srow b{font:600 13px var(--mf);color:var(--red)}
+.srow em{display:block;font:500 11px var(--mf);color:var(--mute);text-transform:uppercase;letter-spacing:.08em;font-style:normal;margin-top:2px}
+.srow p{margin:0;font-size:17px}
+.srow .go{font:700 11.5px var(--mf);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);white-space:nowrap;transition:transform .2s,color .2s}
+.srow:hover .go{transform:translateX(5px);color:var(--red)}
+.none{padding:24px 0;font:italic 18px var(--pf);color:var(--mute)}
+.note{border:2px dashed var(--ink);background:var(--paper2);padding:10px 14px;margin:0 0 18px;font:500 12px/1.5 var(--mf);color:var(--mute)}
+.aside .box{border:2px solid var(--ink);border-top:5px solid var(--redbg);padding:16px;margin-bottom:22px}
+.aside h4{font:900 17px var(--pf);text-transform:uppercase;margin:0 0 8px;border-bottom:2px solid var(--redbg);padding-bottom:6px}
+.aside p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
+.aside ol{margin:0;padding-left:20px;font-size:15.5px;line-height:1.5}.aside li{margin-bottom:6px}
+.mod{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,12,20,.62)}
+.mod.open{display:flex;animation:fade .25s}
+.sheet2{position:relative;background:var(--paper);border:2px solid var(--ink);border-top:6px solid var(--redbg);max-width:660px;width:100%;max-height:90vh;overflow:auto;padding:26px 30px 28px;box-shadow:8px 8px 0 var(--red);animation:popin .4s cubic-bezier(.2,1.2,.4,1)}
+.sheet2 .x{position:absolute;top:8px;right:10px;width:36px;height:36px;font:700 24px/1 var(--mf);background:none;border:0;color:var(--ink);cursor:pointer;transition:transform .2s,color .2s}
+.sheet2 .x:hover{color:var(--red);transform:rotate(90deg)}
+.sheet2 h2{font:900 26px/1.15 var(--pf);margin:6px 30px 6px 0}
+.sheet2 .meta{font:500 12px var(--mf);color:var(--mute);border-block:1px solid var(--line);padding:7px 0;margin-bottom:6px}
+.sheet2 dt{font:700 11.5px var(--mf);letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-top:16px}
+.sheet2 dd{margin:3px 0 0;font-size:17px;line-height:1.55}
+.sheet2 dd,.sheet2 dt{animation:up .5s backwards}
+.sheet2 .act{margin-top:22px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.nopdf{font:500 12px var(--mf);color:var(--mute);border:2px dashed var(--line);padding:10px 14px}
+@media (max-width:1000px){.cols2{grid-template-columns:1fr}}
+@media (max-width:700px){.srow{grid-template-columns:1fr;gap:6px}.sheet2{padding:22px 18px}}
+
+
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="sheet">
+<div class="bar"><span id="dt"></span><span><b id="bd">Filing deadline 31 Oct</b></span></div>
+<div class="alert"><b>Latest</b><div><span><i>Return filing date extended to 31 October 2026 &nbsp;·&nbsp; Finance Act 2026 notified for tax year 2026-27 &nbsp;·&nbsp; Revised salaried slabs apply from 1 July 2026</i><i>Return filing date extended to 31 October 2026 &nbsp;·&nbsp; Finance Act 2026 notified for tax year 2026-27 &nbsp;·&nbsp; Revised salaried slabs apply from 1 July 2026</i></span></div></div>
+<header class="mast"><h1><a href="index.html">The Tax Gazette</a></h1></header>
+<nav class="nav" aria-label="Sections"><a href="index.html">Front page</a><a href="news.html">News</a><a href="tools.html">Tools &amp; Explainers</a><a class="on" href="sro.html" aria-current="page">SRO Tracker</a></nav>
+<main>
+  <div class="ptop"><h2 class="sec">SRO Tracker</h2><p class="sub">Recent Statutory Regulatory Orders, sorted by date and explained in plain words. Select any order to read what it means for you.</p></div>
+  <div class="cols2">
+    <section>
+      <div class="note" id="note">Layout preview: the entries below are placeholders. Replace them with real orders in the SROS list at the top of this page's script. Each order has a number, tax type, date, summary, four plain-English parts and a link to the original PDF.</div>
+      <div class="tools2"><div class="chips" id="chips" role="group" aria-label="Filter by tax type"></div><input class="find" id="find" type="search" placeholder="Search by number or topic" aria-label="Search orders"></div>
+      <div class="list" id="list"></div>
+    </section>
+    <aside class="aside">
+      <div class="box" data-rv><h4>What is an SRO?</h4><p>A Statutory Regulatory Order is a notice issued under a power given by a tax law. It is how many rules change between budgets: an exemption, a rate for certain goods or people, or a procedure.</p></div>
+      <div class="box" data-rv style="--d:.1s"><h4>How to use this page</h4><ol><li>Pick a tax type or search.</li><li>Select an order to open its plain-English explanation.</li><li>Use the PDF link inside it to read the exact wording.</li></ol></div>
+    </aside>
+  </div>
+  <div class="mod" id="mod" aria-hidden="true"><div class="sheet2" role="dialog" aria-modal="true" aria-labelledby="mt" id="sh"><button class="x" id="mx" type="button" aria-label="Close">×</button><span class="mono kick" id="mk"></span><h2 id="mt"></h2><div class="meta" id="mm"></div><dl id="md"></dl><div class="act" id="ma"></div></div></div>
+</main>
+<footer><span>The Tax Gazette is a project of <a href="https://ifatassociates.com">Ifat Associates</a>.</span><span><a href="index.html">Front page</a><a href="news.html">News</a><a href="tools.html">Tools &amp; Explainers</a><a href="sro.html">SRO Tracker</a></span></footer>
+</div>
+<div id="pop" role="tooltip"></div>
+<script>
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('dt').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+var dd=Math.ceil((new Date(2026,9,31,23,59,59)-Date.now())/864e5);
+$('bd').textContent=dd>0?'Filing deadline: '+dd+(dd===1?' day':' days')+' left':'Filing deadline passed';
+
+/* glossary pop-up */
+var pop=$('pop');
+document.addEventListener('click',function(e){
+  var g=e.target.closest&&e.target.closest('.gl');
+  if(!g){pop.style.display='none';return}
+  e.stopPropagation();var r=g.getBoundingClientRect();
+  pop.innerHTML='<b>'+g.textContent+'</b>'+g.dataset.d;pop.style.display='block';
+  pop.style.left=Math.max(10,Math.min(r.left,innerWidth-310))+'px';pop.style.top=(r.bottom+8)+'px';
+});
+addEventListener('scroll',function(){pop.style.display='none'},{passive:true});
+
+/* scroll progress + reveal */
+var pg=$('prog');
+addEventListener('scroll',function(){var d=document.documentElement,m=d.scrollHeight-d.clientHeight;pg.style.width=(m>0?d.scrollTop/m*100:0)+'%'},{passive:true});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+function watch(root){[].forEach.call((root||document).querySelectorAll('[data-rv]:not(.seen)'),function(el){el.classList.add('seen');io.observe(el)})}
+watch();
+
+/* hash router: #slug opens a story or guide in place of the list */
+function initRoute(hubId){
+  var hub=$(hubId),fulls=[].slice.call(document.querySelectorAll('.full')),base=document.title;
+  function route(){
+    var h=decodeURIComponent(location.hash.slice(1)),a=h?$('s-'+h):null;
+    fulls.forEach(function(x){x.hidden=true;x.classList.remove('go')});
+    pop.style.display='none';
+    if(a&&a.classList.contains('full')){
+      hub.hidden=true;a.hidden=false;
+      var fp=a.querySelector('.fpic'),src=document.querySelector('[data-slug="'+h+'"] .npic');
+      if(src&&!fp.firstChild)fp.innerHTML=src.innerHTML;
+      void a.offsetWidth;a.classList.add('go');
+      document.title=a.querySelector('h1').textContent+' · The Tax Gazette';
+      scrollTo(0,0);
+    }else{
+      hub.hidden=false;document.title=base;
+      var t=h?$(h):null;
+      if(t)setTimeout(function(){t.scrollIntoView()},40);else scrollTo(0,0);
+      watch(hub);
+    }
+  }
+  addEventListener('hashchange',route);route();
+}
+
+var SROS=[{"no": "SRO ####(I)/2026", "tax": "Sales Tax", "date": "## Oct 2026", "sum": "A one-or-two line plain-English summary of what the newest order changes appears here.", "id": "sro-1", "what": "Explain in two or three sentences what this order is and which law it was issued under. Avoid section numbers in this part.", "changes": "Say exactly what changes: the old position, the new position, and the date from which it applies.", "who": "Say who is affected, for example salaried people, importers, manufacturers or retailers.", "todo": "Say what the reader should do, for example change how they invoice, check a rate, or do nothing.", "pdf": ""}, {"no": "SRO ####(I)/2026", "tax": "Income Tax", "date": "## Oct 2026", "sum": "The second newest order, summarised the same way, with no jargon.", "id": "sro-2", "what": "Explain in two or three sentences what this order is and which law it was issued under. Avoid section numbers in this part.", "changes": "Say exactly what changes: the old position, the new position, and the date from which it applies.", "who": "Say who is affected, for example salaried people, importers, manufacturers or retailers.", "todo": "Say what the reader should do, for example change how they invoice, check a rate, or do nothing.", "pdf": ""}, {"no": "SRO ####(I)/2026", "tax": "Sales Tax", "date": "## Oct 2026", "sum": "The third newest order, summarised the same way, with no jargon.", "id": "sro-3", "what": "Explain in two or three sentences what this order is and which law it was issued under. Avoid section numbers in this part.", "changes": "Say exactly what changes: the old position, the new position, and the date from which it applies.", "who": "Say who is affected, for example salaried people, importers, manufacturers or retailers.", "todo": "Say what the reader should do, for example change how they invoice, check a rate, or do nothing.", "pdf": ""}, {"no": "SRO ####(I)/2026", "tax": "Federal Excise", "date": "## Sep 2026", "sum": "A plain-English summary of an order under the Federal Excise Act.", "id": "sro-4", "what": "Explain in two or three sentences what this order is and which law it was issued under. Avoid section numbers in this part.", "changes": "Say exactly what changes: the old position, the new position, and the date from which it applies.", "who": "Say who is affected, for example salaried people, importers, manufacturers or retailers.", "todo": "Say what the reader should do, for example change how they invoice, check a rate, or do nothing.", "pdf": ""}, {"no": "SRO ####(I)/2026", "tax": "Customs", "date": "## Sep 2026", "sum": "A plain-English summary of an order concerning customs duty on imports.", "id": "sro-5", "what": "Explain in two or three sentences what this order is and which law it was issued under. Avoid section numbers in this part.", "changes": "Say exactly what changes: the old position, the new position, and the date from which it applies.", "who": "Say who is affected, for example salaried people, importers, manufacturers or retailers.", "todo": "Say what the reader should do, for example change how they invoice, check a rate, or do nothing.", "pdf": ""}, {"no": "SRO ####(I)/2026", "tax": "Income Tax", "date": "## Sep 2026", "sum": "A plain-English summary of an older income tax order that still matters.", "id": "sro-6", "what": "Explain in two or three sentences what this order is and which law it was issued under. Avoid section numbers in this part.", "changes": "Say exactly what changes: the old position, the new position, and the date from which it applies.", "who": "Say who is affected, for example salaried people, importers, manufacturers or retailers.", "todo": "Say what the reader should do, for example change how they invoice, check a rate, or do nothing.", "pdf": ""}];
+var tax='All',q='',last=null;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var types=['All'];SROS.forEach(function(s){if(types.indexOf(s.tax)<0)types.push(s.tax)});
+function chips(){$('chips').innerHTML=types.map(function(t){return '<button type="button" aria-pressed="'+(t===tax)+'" data-t="'+esc(t)+'">'+esc(t)+'</button>'}).join('')}
+function render(){var l=SROS.filter(function(s){return(tax==='All'||s.tax===tax)&&(!q||(s.no+' '+s.tax+' '+s.sum).toLowerCase().indexOf(q)>-1)});
+ $('list').innerHTML=l.length?l.map(function(s,i){return '<button class="srow" type="button" data-id="'+s.id+'" data-rv style="--d:'+(i*.06)+'s"><div><b>'+esc(s.no)+'</b><em>'+esc(s.tax)+' · '+esc(s.date)+'</em></div><p>'+esc(s.sum)+'</p><span class="go">Explain it →</span></button>'}).join(''):'<p class="none">No orders match. Try another tax type or a different word.</p>';
+ watch($('list'))}
+$('chips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;tax=b.dataset.t;chips();render()});
+$('find').addEventListener('input',function(){q=this.value.trim().toLowerCase();render()});
+$('list').addEventListener('click',function(e){var b=e.target.closest('.srow');if(b)openMod(b.dataset.id,true)});
+function openMod(id,push){var s=SROS.filter(function(x){return x.id===id})[0];if(!s)return;
+ last=document.activeElement;
+ $('mk').textContent=s.tax;$('mt').textContent=s.no+': in plain words';$('mm').textContent=s.tax+' · '+s.date;
+ var parts=[['What it is',s.what],['What changes',s.changes],['Who it affects',s.who],['What you should do',s.todo]];
+ $('md').innerHTML=parts.map(function(p,i){return '<dt style="animation-delay:'+(.15+i*.12)+'s">'+p[0]+'</dt><dd style="animation-delay:'+(.2+i*.12)+'s">'+esc(p[1])+'</dd>'}).join('');
+ $('ma').innerHTML=(s.pdf?'<a class="btn" href="'+esc(s.pdf)+'" target="_blank" rel="noopener">Open the original PDF ↗</a>':'<span class="nopdf">Original PDF link not added yet</span>')+'<button class="btn" type="button" id="mc" style="background:var(--ink)">Close</button>';
+ $('mc').onclick=closeMod;
+ $('mod').classList.add('open');$('mod').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+ if(push&&location.hash!=='#'+id)history.replaceState(null,'','#'+id);
+ $('mx').focus()}
+function closeMod(){$('mod').classList.remove('open');$('mod').setAttribute('aria-hidden','true');document.body.style.overflow='';if(location.hash)history.replaceState(null,'',location.pathname+location.search);if(last&&last.focus)last.focus()}
+$('mx').onclick=closeMod;
+$('mod').addEventListener('click',function(e){if(e.target===this)closeMod()});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&$('mod').classList.contains('open'))closeMod()});
+addEventListener('hashchange',function(){var h=location.hash.slice(1);if(h)openMod(h,false)});
+chips();render();if(location.hash)openMod(location.hash.slice(1),false);
+
+</script>
+</body>
+</html>

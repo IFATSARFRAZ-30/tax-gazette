@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Tax Gazette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4F1EA;--paper2:#EAE6DB;--desk:#D9D3C2;--ink:#1A1A1A;--bar:#1A1A1A;--onbar:#F4F1EA;--blue:#1E3A8A;--bsoft:#D9E1F5;--red:#8B1A1A;--redbg:#8B1A1A;--rsoft:#F1D3CC;--mute:#55555E;--line:#C8C0AC;
+--pf:"Playfair Display",Georgia,serif;--sf:"Source Serif 4",Georgia,serif;--mf:"IBM Plex Mono",ui-monospace,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#12192A;--paper2:#1A2338;--desk:#080D18;--ink:#ECE8DC;--bar:#060A14;--onbar:#ECE8DC;--blue:#8FB0FF;--bsoft:#22335C;--red:#FF8A70;--redbg:#7A1A1A;--rsoft:#5B2326;--mute:#A3AEC6;--line:#2B3A60}}
+:root[data-theme="dark"]{--paper:#12192A;--paper2:#1A2338;--desk:#080D18;--ink:#ECE8DC;--bar:#060A14;--onbar:#ECE8DC;--blue:#8FB0FF;--bsoft:#22335C;--red:#FF8A70;--redbg:#7A1A1A;--rsoft:#5B2326;--mute:#A3AEC6;--line:#2B3A60}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;color:var(--ink);font:18px/1.6 var(--sf);background:var(--desk) url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><g fill='none' stroke='%237F95C9' stroke-opacity='.28'><path d='M28 3l25 25-25 25L3 28z'/><circle cx='28' cy='28' r='10'/><path d='M28 18v20M18 28h20'/></g></svg>")}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.sheet{max-width:1400px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 0 2px var(--ink),0 0 70px rgba(0,0,0,.18)}
+.mono{font:600 11.5px var(--mf);letter-spacing:.14em;text-transform:uppercase}
+.bar{background:var(--bar);color:var(--onbar);font:500 12px var(--mf);padding:9px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bar b{background:var(--redbg);color:#fff;padding:2px 8px;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.alert{background:var(--redbg);color:#fff;display:flex;align-items:center;overflow:hidden;font:600 13px var(--sf)}
+.alert>b{flex:none;background:#fff;color:#7A1A1A;font:700 11px var(--mf);letter-spacing:.14em;padding:8px 14px;text-transform:uppercase}
+.alert div{white-space:nowrap;overflow:hidden;flex:1}
+.alert span{display:inline-flex;gap:60px;padding:8px 0 8px 30px;animation:mq 55s linear infinite}
+.alert:hover span{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mast{text-align:center;padding:22px 16px 6px}
+.mast .mono{color:var(--mute)}
+.mast h1{font:900 clamp(44px,9vw,112px)/1 var(--pf);letter-spacing:-.02em;text-transform:uppercase;margin:8px 0 4px}
+.mast p{font:italic 18px var(--pf);color:var(--mute);margin:0}
+.nav{display:flex;justify-content:center;gap:clamp(14px,3.5vw,44px);margin:16px 24px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:11px 0;font:700 13.5px var(--mf);text-transform:uppercase;letter-spacing:.09em;flex-wrap:wrap}
+.nav a{padding-bottom:3px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav a:hover,.nav a.on{color:var(--red);border-color:var(--red)}
+.cols{display:grid;grid-template-columns:220px minmax(0,1fr) 280px;margin-top:6px}
+.left,.right{padding:24px 22px}
+.left{border-right:1px solid var(--line)}.right{border-left:1px solid var(--line)}
+.left>div{position:sticky;top:16px}
+main{padding:24px 32px 40px;min-width:0}
+h3.sec{font:900 28px/1.1 var(--pf);margin:0 0 4px;text-transform:uppercase;letter-spacing:.01em}
+.rule{border:0;border-top:2px solid var(--ink);margin:0 0 14px}
+.left ol{list-style:none;margin:10px 0 22px;padding:0}
+.left li a{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--line);font-size:17px}
+.left li a:hover{color:var(--red)}
+.left li i{font:900 21px var(--pf);color:var(--red);width:22px;font-style:normal}
+.dec{border:2px solid var(--ink);border-top:5px solid var(--redbg);padding:14px;margin-top:6px}
+.dec h4{font:900 17px var(--pf);text-transform:uppercase;margin:0 0 8px;border-bottom:2px solid var(--redbg);padding-bottom:6px}
+.dec dt{font:700 12px var(--mf);color:var(--red);text-transform:uppercase;margin-top:10px}
+.dec dd{margin:2px 0 0;font-size:14.5px;line-height:1.45}
+
+.lead{position:relative;background:var(--paper2);border:1px solid var(--line);border-top:5px solid var(--redbg);overflow:hidden}
+.kick{color:var(--red)}
+.lead h2{font:900 clamp(30px,4.3vw,52px)/1.06 var(--pf);margin:12px 0 14px;letter-spacing:-.01em;max-width:15em}
+.hl{background:linear-gradient(var(--rsoft),var(--rsoft)) 0 92%/100% .42em no-repeat;box-shadow:inset 0 -3px 0 var(--redbg)}
+.slide.act .hl{animation:hl 1s .6s both}
+@keyframes hl{from{background-size:0 .38em}}
+.deck{font:italic 20px/1.4 var(--pf);color:var(--mute);margin:0 0 14px}
+.by{display:flex;gap:12px;flex-wrap:wrap;border-block:1px solid var(--line);padding:7px 0;margin-bottom:16px;font:500 12px var(--mf);color:var(--mute)}
+.by b{color:var(--red)}
+.dc::first-letter{font:900 4.1rem/.82 var(--pf);float:left;padding:6px 12px 0 0;color:var(--red)}
+.gl{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dashed var(--red);text-underline-offset:4px}
+.gl:hover{color:var(--red)}
+.btn{display:inline-block;font:700 12.5px var(--mf);letter-spacing:.09em;text-transform:uppercase;background:var(--redbg);color:#fff;padding:11px 18px;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:30px 0}
+.card{display:block;border-top:4px solid var(--redbg);padding-top:12px;transition:transform .25s}
+.card:hover{transform:translateY(-4px)}
+.card h4,.ex h4{font:700 23px/1.2 var(--pf);margin:6px 0}
+.card:hover h4,.ex a:hover h4{color:var(--red)}
+.card p,.ex p{margin:0 0 8px;color:var(--mute);font-size:16.5px}
+.dt{font:500 12px var(--mf);color:var(--mute)}
+.calc{border-top:3px double var(--ink);border-bottom:3px double var(--ink);padding:14px 0 16px;margin-bottom:24px}
+.calc h3{font:900 25px/1 var(--pf);text-transform:uppercase;margin:4px 0 6px}
+.cin{margin:0 0 12px;font:italic 15px/1.4 var(--pf);color:var(--mute)}
+.dev:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+.scr{background:var(--paper2);border:2px solid var(--ink);padding:8px 12px 4px;margin-bottom:12px}
+.scr .lbl{font:600 10.5px var(--mf);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.scr output{display:block;text-align:right;font:900 34px/1.2 var(--pf);overflow:hidden;border-bottom:1px solid var(--line)}
+.tg{position:relative;display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);background:var(--paper);margin-bottom:8px;box-shadow:3px 3px 0 var(--ink)}
+.tg:before{content:"";position:absolute;top:0;bottom:0;left:0;width:50%;background:var(--redbg);transition:transform .35s cubic-bezier(.65,0,.25,1)}
+.tg.yr:before{transform:translateX(100%)}
+.tg button{position:relative;z-index:1;font:700 13px var(--mf);letter-spacing:.1em;text-transform:uppercase;background:none;border:0;color:var(--ink);padding:11px 0;cursor:pointer;transition:color .3s}
+.tg button+button{border-left:2px solid var(--ink)}
+.tg button[aria-pressed=true]{color:#fff}
+.tg button[aria-pressed=false]:hover{color:var(--red)}
+.tghint{font:italic 13px var(--pf);color:var(--mute);margin:0 0 6px;text-align:center}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.keys button{font:700 21px var(--pf);padding:11px 0;border:2px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--ink);transition:transform .08s,box-shadow .08s,background .15s}
+.keys button:hover{background:var(--paper2)}
+.keys button:active{transform:translate(2px,2px);box-shadow:none}
+.keys .op{color:var(--red)}
+.keys .eq{background:var(--redbg);color:#fff}
+.keys .eq:hover{background:var(--redbg);filter:brightness(1.2)}
+.keys .z{grid-column:span 2}
+.go2{width:100%;margin-top:12px;font:700 12.5px var(--mf);letter-spacing:.1em;text-transform:uppercase;background:var(--redbg);color:#fff;border:0;padding:13px;cursor:pointer;transition:background .2s}
+.go2:hover{background:var(--ink);color:var(--paper)}
+.out{margin-top:8px}
+.tape{margin-top:10px;border-top:2px solid var(--ink)}
+.tr{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px dotted var(--mute);animation:pr .45s calc(var(--i)*.18s) both}
+.tr span{font:600 10.5px var(--mf);letter-spacing:.06em;text-transform:uppercase}
+.tr b{font:900 19px var(--pf)}
+@keyframes pr{from{opacity:0;transform:translateY(-8px)}}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0 8px}
+.res b{display:block;font:900 20px/1.15 var(--pf)}
+.res span{font:500 11.5px var(--mf);color:var(--mute);text-transform:uppercase;letter-spacing:.05em}
+.fn{font:500 12px var(--mf);color:var(--mute);margin:8px 0 0}
+.sro{position:relative;margin:34px 0;border-top:5px solid var(--redbg);border-bottom:1px solid var(--ink);padding:14px 0 18px}
+.row{display:grid;grid-template-columns:170px 1fr auto;gap:16px;align-items:baseline;padding:13px 0;border-top:1px dashed var(--line)}
+.row b{font:600 13px var(--mf)}
+.row em{display:block;font:500 11px var(--mf);color:var(--mute);text-transform:uppercase;letter-spacing:.08em;font-style:normal;margin-top:2px}
+.row p{margin:0}
+.row a{font:600 12px var(--mf);color:var(--blue);text-decoration:underline;white-space:nowrap}
+.more{display:inline-block;margin-top:12px;font:700 21px var(--pf);color:var(--blue);border-bottom:3px solid var(--red)}
+.more:hover{color:var(--red)}
+.ex{display:grid;grid-template-columns:1.35fr 1fr;gap:32px;margin-top:14px}
+.pic{border:2px solid var(--ink);border-bottom:5px solid var(--redbg);background:var(--bsoft);height:160px;margin-bottom:12px;color:var(--ink);transition:transform .3s}
+.ex a:hover .pic{transform:rotate(-1.2deg) scale(1.02)}
+.ex a:nth-child(2) .pic{height:116px}
+.pic svg{width:100%;height:100%}
+.pic path,.pic circle,.pic ellipse{stroke-linecap:round;stroke-linejoin:round}
+.box{border:2px solid var(--ink);border-top:5px solid var(--redbg);padding:16px;margin-bottom:24px}
+.cd{text-align:center;transform:rotate(1.2deg);border-color:var(--red)}
+.cd strong{display:block;font:900 84px/1 var(--pf);color:var(--red)}
+.cd p{margin:6px 0 10px;font-size:16px}
+.dark{background:var(--bar);color:var(--onbar);border-color:var(--bar)}
+.dark h4{font:900 18px var(--pf);text-transform:uppercase;color:#E8B64A;margin:0 0 10px;border-bottom:2px solid #E0533F;padding-bottom:8px}
+.dark a{display:block;padding:9px 0;border-bottom:1px solid #333;font:700 16px/1.3 var(--pf)}
+.dark a:last-child{border:0}
+.dark a:hover{color:#E8B64A}
+.dark small{display:block;font:500 11px var(--mf);color:#E0533F;margin-bottom:3px}
+.ad{border:2px dashed var(--ink);text-align:center;background:var(--paper2)}
+.ad h4{font:900 20px var(--pf);margin:4px 0 6px;text-transform:uppercase}
+.ad p{font-size:15.5px;margin:0 0 10px}
+.clip{position:relative;border:2px dashed var(--ink);padding:18px 16px 14px}
+.clip:before{content:"✂";position:absolute;top:-14px;left:16px;background:var(--paper);padding:0 6px;font-size:22px}
+.right input{width:100%;font:16px var(--sf);padding:9px 10px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);margin:8px 0}
+.right .btn{width:100%}
+#ok{font:600 12px var(--mf);margin-top:8px;min-height:18px}
+footer{background:var(--bar);color:#bdb9ad;border-top:5px solid var(--redbg);padding:26px 24px;font:500 12px/1.8 var(--mf);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{margin-right:16px;text-decoration:underline}
+#pop{position:fixed;display:none;z-index:30;max-width:290px;background:var(--bar);color:var(--onbar);padding:12px 14px;font:15px/1.45 var(--sf);box-shadow:4px 4px 0 var(--red)}
+#pop b{display:block;font:700 11px var(--mf);letter-spacing:.1em;text-transform:uppercase;color:#E8B64A;margin-bottom:4px}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+
+::selection{background:var(--redbg);color:#fff}
+h3.sec:after{content:"";display:block;width:64px;height:5px;background:var(--redbg);margin:8px 0 12px}
+h3.sec+.rule{display:none}
+.kick:before{content:"";display:inline-block;width:9px;height:9px;background:var(--red);margin-right:8px;vertical-align:1px}
+.row b{color:var(--red)}
+.vp{overflow:hidden}
+.track{display:flex;transition:transform .65s cubic-bezier(.65,0,.25,1);will-change:transform;touch-action:pan-y}
+.slide{flex:0 0 100%;min-width:0;position:relative;padding:30px 32px 22px}
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:var(--redbg);z-index:40}
+
+.slide{cursor:pointer}
+.arw{position:absolute;top:50%;z-index:3;width:46px;height:46px;margin-top:-23px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font:700 30px/1 var(--pf);padding:0 0 4px;cursor:pointer;box-shadow:2px 2px 0 var(--ink);transition:background .2s,color .2s,transform .15s,box-shadow .15s}
+.arw.prv{left:10px}.arw.nxt{right:10px}
+.arw:hover{background:var(--redbg);color:#fff}
+.arw:active{transform:translate(2px,2px);box-shadow:none}
+.lead .slide{padding-left:70px;padding-right:70px}
+.tbar{height:4px;background:var(--line)}
+.tbar i{display:block;height:100%;background:var(--redbg);transform-origin:left;transform:scaleX(0)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}}
+@keyframes dropin{from{opacity:0;transform:translateY(-26px);letter-spacing:.12em}}
+@keyframes fade{from{opacity:0}}
+@keyframes drift{to{background-position:560px 280px}}
+@keyframes blink{50%{opacity:.25}}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rowin{from{opacity:0;transform:translateX(-26px)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(139,26,26,.6)}70%,100%{box-shadow:0 0 0 14px rgba(139,26,26,0)}}
+@keyframes bumpk{50%{transform:scale(1.07)}}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@keyframes tickp{0%,86%,100%{transform:scale(1)}93%{transform:scale(1.09)}}
+body{animation:drift 120s linear infinite}
+.bar b:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:7px;animation:blink 1.4s infinite}
+.mast .mono{animation:fade 1s .1s backwards}
+.mast h1{animation:dropin 1s .15s cubic-bezier(.2,.8,.2,1) backwards}
+.nav{animation:fade 1s .5s backwards}
+.nav a{transition:color .2s,border-color .2s,transform .2s}
+.nav a:hover{transform:translateY(-2px)}
+.slide.act>*{animation:up .7s backwards}
+.slide.act>:nth-child(1){animation-delay:.05s}.slide.act>:nth-child(2){animation-delay:.12s}.slide.act>:nth-child(3){animation-delay:.2s}.slide.act>:nth-child(4){animation-delay:.28s}.slide.act>:nth-child(5){animation-delay:.36s}.slide.act>:nth-child(6){animation-delay:.44s}.slide.act>:nth-child(7){animation-delay:.52s}.slide.act>:nth-child(8){animation-delay:.6s}
+.two.in .card{animation:up .7s backwards}.two.in .card:nth-child(2){animation-delay:.15s}
+.sro.in .row{animation:rowin .6s backwards}
+.sro.in .row:nth-of-type(1){animation-delay:.1s}.sro.in .row:nth-of-type(2){animation-delay:.25s}.sro.in .row:nth-of-type(3){animation-delay:.4s}
+.sro.in .more{animation:fade 1s .6s backwards}
+#explain.in .ex a:nth-child(1){animation:up .7s backwards}#explain.in .ex a:nth-child(2){animation:up .7s .2s backwards}
+.pic svg{animation:bob 6s ease-in-out infinite}
+.ex a:nth-child(2) .pic svg{animation-delay:-3s}
+.cd strong{animation:tickp 3s ease-in-out infinite}
+.btn,.go2{position:relative;overflow:hidden}
+.btn:after,.go2:after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:rgba(255,255,255,.28);transform:skewX(-20deg);transition:left .55s}
+.btn:hover:after,.go2:hover:after{left:130%}
+.go2.ready{animation:pulse 1.6s infinite}
+.scr output.bump{animation:bumpk .25s;transform-origin:right center}
+.dark a{transition:transform .25s,color .2s}.dark a:hover{transform:translateX(6px)}
+.left li a{transition:transform .25s,color .2s}.left li a:hover{transform:translateX(5px)}
+@media (max-width:1060px){.cols{grid-template-columns:1fr}.left{display:none}.right{border:0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:0 24px}main{padding:22px 18px}.two,.ex{grid-template-columns:1fr}.row{grid-template-columns:1fr}.slide{padding:22px 18px 8px}.lead .slide{padding-left:58px;padding-right:58px}.arw{width:38px;height:38px;margin-top:-19px;font-size:26px}.arw.prv{left:6px}.arw.nxt{right:6px}}
+@media (max-width:620px){.right{grid-template-columns:1fr}.res{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="sheet">
+<div class="bar"><span id="dt"></span><span><b id="bd">Filing deadline 31 Oct</b></span></div>
+<div class="alert"><b>Latest</b><div><span><i>Return filing date extended to 31 October 2026 &nbsp;·&nbsp; Finance Act 2026 notified for tax year 2026-27 &nbsp;·&nbsp; Revised salaried slabs apply from 1 July 2026</i><i>Return filing date extended to 31 October 2026 &nbsp;·&nbsp; Finance Act 2026 notified for tax year 2026-27 &nbsp;·&nbsp; Revised salaried slabs apply from 1 July 2026</i></span></div></div>
+<header class="mast">
+  
+  <h1>The Tax Gazette</h1>
+  
+</header>
+<nav class="nav" aria-label="Sections">
+  <a class="on" href="#lead">Front page</a><a href="news.html">News</a><a href="tools.html">Tools &amp; Explainers</a><a href="sro.html">SRO Tracker</a>
+</nav>
+
+<div class="cols">
+<aside class="left"><div>
+  <span class="mono">In this issue</span>
+  <ol><li><a href="#lead"><i>1</i>Lead story</a></li><li><a href="news.html"><i>2</i>More news</a></li><li><a href="#calc"><i>3</i>Tax calculator</a></li><li><a href="sro.html"><i>4</i>SRO Tracker</a></li><li><a href="tools.html#explainers"><i>5</i>Explainers</a></li></ol>
+  <div class="dec"><h4>Tax words, decoded</h4><dl style="margin:0">
+    <dt>Withholding tax</dt><dd>Tax taken in advance by whoever pays you, or by your bank, and counted against your final bill.</dd>
+    <dt>ATL</dt><dd>The Active Taxpayers List: FBR's list of people who have filed. Being on it means lower withholding rates.</dd>
+    <dt>SRO</dt><dd>A Statutory Regulatory Order: a government notice that changes how a tax rule works.</dd></dl></div>
+  <p class="fn" style="margin:16px 0 0">Tip: click any dashed word in a story to see what it means.</p>
+</div></aside>
+
+<main>
+<section class="lead" id="lead" aria-roledescription="carousel" aria-label="Top stories"><div class="vp"><div class="track" id="trk"><article class="slide act" data-href="news.html#return-deadline-2026" aria-roledescription="slide" aria-label="Story 1 of 4">
+  <span class="mono kick">Front page · Deadlines</span>
+  <h2>FBR moves the return deadline to 31 October. <span class="hl">Use the time well.</span></h2>
+  <p class="deck">The date has now been pushed twice this season. Here is what to check before you file.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>Tax year 2026 returns</span></div>
+  <p class="dc">The Federal Board of Revenue has extended the filing deadline for tax year 2026 returns to 31 October, the second extension this season. If you have not filed yet, the first thing to check is whether you are on the <button class="gl" data-d="FBR's published list of taxpayers who have filed their return. Being on it means lower withholding rates on bank transactions, property and vehicles.">Active Taxpayers List</button>, because that status decides how much <button class="gl" data-d="Tax deducted in advance by the person paying you, or by your bank, and counted against your final tax bill.">withholding tax</button> is taken from you for the rest of the year.</p><p>File through the <button class="gl" data-d="FBR's online portal where individuals and companies submit their annual returns.">IRIS</button> portal, keep your salary slips and bank statements handy, and do not count on another extension.</p>
+  <a class="btn" href="news.html#return-deadline-2026">Read the full story →</a>
+</article>
+<article class="slide" data-href="news.html#finance-act-2026-notified" aria-roledescription="slide" aria-label="Story 2 of 4">
+  <span class="mono kick">Budget · Finance Act</span>
+  <h2>Finance Act 2026 notified: <span class="hl">key changes for tax year 2026-27</span></h2>
+  <p class="deck">Revised salaried slabs, super tax and withholding rates. Here is what changes for you.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>1 July 2026</span></div>
+  <p class="dc">The Finance Act 2026 has been notified for tax year 2026-27, which means the changes announced in the budget are now law. The revised salaried <button class="gl" data-d="A band of income taxed at one rate. As your income rises you move through the bands, and each band is taxed at its own rate.">slabs</button> apply from 1 July 2026, so they affect the salary you receive now, not only the return you will file next year.</p><p>The Act also changes the <button class="gl" data-d="An extra tax charged on top of normal income tax once income reaches a set level.">super tax</button> and the rates of <button class="gl" data-d="Tax deducted in advance by the person paying you, or by your bank, and counted against your final tax bill.">withholding tax</button>. Salaried people should look at the slabs first, because they decide how much tax is deducted from each payslip. Business owners should read the withholding and super tax provisions, since those change what is deducted from their payments and what is due at the end of the year.</p><p>Key in your own salary in the tax calculator on this page to see what the new slabs mean for your pay. The result is an estimate, so compare it with your payslip.</p>
+  <a class="btn" href="news.html#finance-act-2026-notified">Read the full story →</a>
+</article>
+<article class="slide" data-href="news.html#super-tax-2026" aria-roledescription="slide" aria-label="Story 3 of 4">
+  <span class="mono kick">High earners</span>
+  <h2>Finance Act 2026: what changed for <span class="hl">high earners</span></h2>
+  <p class="deck">Surcharge and super tax changes, with links to the Act.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>15 July 2026</span></div>
+  <p class="dc">The Finance Act 2026 changes the <button class="gl" data-d="An additional percentage added to the income tax you already owe. It applies only to higher incomes.">surcharge</button> and the <button class="gl" data-d="An extra tax charged on top of normal income tax once income reaches a set level.">super tax</button> that apply to higher incomes. Both are charged on top of ordinary income tax, which is why a change to either one alters your total bill even when the normal slabs stay the same.</p><p>A surcharge is worked out as a percentage of the income tax you already owe, while super tax is worked out on income, at rates that depend on the income level. If your income sits near the edge of a band, a small change in these rules can matter more than a change in the slabs themselves, so it is worth checking where you now fall.</p><p>Our full story sets out each change and links to the Act, so you can read the wording for yourself. The calculator on this page covers the salaried slabs only and does not add the surcharge or super tax, so a high earner's real bill will be higher than its estimate.</p>
+  <a class="btn" href="news.html#super-tax-2026">Read the full story →</a>
+</article>
+<article class="slide" data-href="news.html#non-filer-wht-explained" aria-roledescription="slide" aria-label="Story 4 of 4">
+  <span class="mono kick">Withholding tax</span>
+  <h2>Why <span class="hl">non-filers</span> pay more</h2>
+  <p class="deck">What Active Taxpayers List status changes at the bank, on property and on vehicles.</p>
+  <div class="by"><span>By <b>the Gazette desk</b></span><span>·</span><span>Explainer</span></div>
+  <p class="dc">Filing your return is what puts you on the <button class="gl" data-d="FBR's published list of taxpayers who have filed their return. Being on it means lower withholding rates on bank transactions, property and vehicles.">Active Taxpayers List</button>, and that status decides the <button class="gl" data-d="Tax deducted in advance by the person paying you, or by your bank, and counted against your final tax bill.">withholding tax</button> rates you face through the year. A person who is not on the list is charged higher rates on the same transaction, so the cost of not filing is paid in small amounts each time you use the bank, buy property or register a vehicle.</p><p>The higher rates are deducted at the time of the transaction by the bank, the registrar or the seller, so you feel the cost straight away. Most people only notice the difference when they compare a deduction with what a filer paid on a similar transaction.</p><p>The remedy is simple: file your return and confirm that your name appears on the list. The list can take a short while to update after you file, so do not leave it to the last week of the deadline.</p>
+  <a class="btn" href="news.html#non-filer-wht-explained">Read the full story →</a>
+</article>
+</div></div>
+<button class="arw prv" id="pv" type="button" aria-label="Previous story">‹</button><button class="arw nxt" id="nx" type="button" aria-label="Next story">›</button>
+<div class="tbar" aria-hidden="true"><i id="tb"></i></div></section>
+
+<section class="two rv" id="news">
+  <a class="card" href="news.html#finance-act-2026-notified"><span class="mono kick">Budget</span><h4>Finance Act 2026 notified: key changes for tax year 2026-27</h4><p>Revised salaried slabs, super tax and withholding rates. Here is what changes for you.</p><span class="dt">1 July 2026</span></a>
+  <a class="card" href="news.html#super-tax-2026"><span class="mono kick">High earners</span><h4>Finance Act 2026: what changed for high earners</h4><p>Surcharge and super tax changes, with links to the Act.</p><span class="dt">15 July 2026</span></a>
+</section>
+
+
+
+<section class="sro rv" id="sro">
+  
+  
+  <h3 class="sec">SRO Tracker</h3>
+  <div class="row"><div><b>SRO ####(I)/2026</b><em>Sales Tax · ## Oct 2026</em></div><p>A one-or-two line plain-English summary of what the newest order changes appears here.</p><a href="sro.html">Plain-English summary →</a></div>
+  <div class="row"><div><b>SRO ####(I)/2026</b><em>Income Tax · ## Oct 2026</em></div><p>The second newest order, summarised the same way, with no jargon.</p><a href="sro.html">Plain-English summary →</a></div>
+  <div class="row"><div><b>SRO ####(I)/2026</b><em>Sales Tax · ## Oct 2026</em></div><p>The third newest order. Only three show here; the real ones come from your tracker.</p><a href="sro.html">Plain-English summary →</a></div>
+  <a class="more" href="sro.html">Every SRO, sorted and explained →</a>
+</section>
+
+<section id="explain" class="rv">
+  <h3 class="sec">Explainers</h3><hr class="rule">
+  <div class="ex">
+    <a href="tools.html#salaried-tax-slabs-explained"><div class="pic"><svg viewBox="0 0 300 170" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M30 140h60v-30h60v-30h60v-30h60"/><path d="M90 140v-30M150 110V80M210 80V50"/><circle cx="60" cy="118" r="9"/><path d="M60 127v12M52 133h16M60 139l-6 8M60 139l6 8"/><path d="M230 38l22-14M252 24l-2 14M252 24l-14 2" stroke="var(--red)"/></svg></div><span class="mono kick">Tax slabs</span><h4>Salaried income tax slabs, with a worked example</h4><p>How the staircase of rates actually applies to your pay, step by step.</p></a>
+    <a href="tools.html#non-filer-wht-explained"><div class="pic"><svg viewBox="0 0 300 120" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><ellipse cx="100" cy="92" rx="42" ry="12"/><ellipse cx="100" cy="76" rx="42" ry="12"/><ellipse cx="100" cy="60" rx="42" ry="12"/><circle cx="200" cy="52" r="30" stroke="var(--red)"/><path d="M188 66l24-28" stroke="var(--red)"/><circle cx="190" cy="42" r="3.5" stroke="var(--red)"/><circle cx="210" cy="62" r="3.5" stroke="var(--red)"/></svg></div><span class="mono kick">Withholding tax</span><h4>Why non-filers pay more</h4><p>What Active Taxpayers List status changes at the bank, on property and on vehicles.</p></a>
+  </div>
+</section>
+</main>
+
+<aside class="right">
+  <section class="calc" id="calc">
+    <span class="mono kick">Salaried · TY 2026-27</span>
+    <h3>Tax calculator</h3>
+    <p class="cin">Key in your salary, then press <b>Calculate tax</b> to see what you owe.</p>
+    <div class="dev" tabindex="0" aria-label="Tax calculator">
+      <div class="scr"><p class="tghint">Tap to switch between monthly and yearly pay</p><div class="tg" role="group" aria-label="Salary period"><button type="button" data-p="12" aria-pressed="true">Monthly</button><button type="button" data-p="1" aria-pressed="false">Yearly</button></div><div class="lbl" id="lb">Monthly salary, PKR</div><output id="disp">0</output></div>
+      <div class="keys"><button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button><button class="op" data-k="C">C</button><button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button><button class="op" data-k="B" aria-label="Backspace">⌫</button><button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button><button data-k="000">000</button><button class="z" data-k="0">0</button><button data-k="00">00</button><button class="eq" data-k="=" aria-label="Calculate">=</button></div>
+      <button class="go2" id="go2" type="button">Calculate tax</button>
+    </div>
+    <div class="out" id="out" aria-live="polite"></div>
+  </section>
+  <div class="box cd rv"><span class="mono kick">Filing deadline</span><strong id="cd">-</strong><p id="cdl"></p><a class="btn" href="news.html#return-deadline-2026">What to do now</a></div>
+  <div class="box dark rv"><h4>Read next</h4>
+    <a href="tools.html#salaried-tax-slabs-explained"><small>01 · EXPLAINER</small>Salaried income tax slabs, with a worked example</a>
+    <a href="tools.html#non-filer-wht-explained"><small>02 · EXPLAINER</small>Why non-filers pay more</a>
+    <a href="tools.html#calculator"><small>03 · TOOL</small>Income tax calculator</a></div>
+  <div class="box ad rv"><span class="mono kick">Notice</span><h4>Stuck on your return?</h4><p>Ifat Associates helps individuals and businesses file with confidence.</p><a class="btn" href="https://ifatassociates.com">Talk to us</a></div>
+  <div class="clip rv" id="letter"><span class="mono kick">Clip and keep</span><h4 style="font:900 20px var(--pf);margin:4px 0 4px">The weekly letter</h4><p style="margin:0;font-size:15.5px">What changed this week and what to do about it. One short email.</p><input id="em" type="email" placeholder="you@email.com" aria-label="Email"><button class="btn" id="go" type="button">Send me the letter</button><div id="ok" role="status"></div></div>
+</aside>
+</div>
+<footer><span>The Tax Gazette is a project of <a href="https://ifatassociates.com">Ifat Associates</a>.</span><span><a href="news.html">News</a><a href="tools.html">Tools &amp; Explainers</a><a href="sro.html">SRO Tracker</a></span></footer>
+</div>
+<div id="pop" role="tooltip"></div>
+<script>
+var $=function(i){return document.getElementById(i)};
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function cu(el,to,fmt,d){if(RM){el.textContent=fmt(to);return}var t0=performance.now();(function s(t){var k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);el.textContent=fmt(to*e);if(k<1)requestAnimationFrame(s)})(t0)}
+$('dt').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+var dd=Math.ceil((new Date(2026,9,31,23,59,59)-Date.now())/864e5);
+$('cd').textContent=dd>0?dd:0;$('cdl').textContent=dd>0?(dd===1?'day left to file your return':'days left to file your return'):'The extended deadline has passed';
+$('bd').textContent=dd>0?'Filing deadline: '+dd+(dd===1?' day':' days')+' left':'Filing deadline passed';
+var S=[[6e5,0,0,0],[1.2e6,0,.01,6e5],[2.2e6,6000,.11,1.2e6],[3.2e6,116000,.2,2.2e6],[4.1e6,316000,.25,3.2e6],[5.6e6,541000,.29,4.1e6],[7e6,976000,.32,5.6e6],[Infinity,1424000,.35,7e6]];
+function tax(a){for(var i=0;i<S.length;i++)if(a<=S[i][0])return S[i][1]+(a-S[i][3])*S[i][2];return 0}
+function f(n){return 'Rs '+Math.round(n).toLocaleString('en-PK')}
+var dg='',p=12,disp=$('disp');
+function bump(){disp.classList.remove('bump');void disp.offsetWidth;disp.classList.add('bump')}
+function show(){disp.textContent=dg?(+dg).toLocaleString('en-US'):'0'}
+function calc(){var v=parseInt(dg,10)||0,o=$('out');if(!v){o.innerHTML='<p class="fn">Enter your salary first, then press Calculate tax.</p>';return}
+var a=v*p,t=tax(a),e=a?t/a*100:0;
+o.innerHTML='<div class="tape"><div class="tr" style="--i:0"><span>Tax a year</span><b data-v="'+t+'">'+f(t)+'</b></div><div class="tr" style="--i:1"><span>Tax a month</span><b data-v="'+t/12+'">'+f(t/12)+'</b></div><div class="tr" style="--i:2"><span>You keep a month</span><b data-v="'+(a/12-t/12)+'">'+f(a/12-t/12)+'</b></div></div><p class="fn">'+(e<.05?'No tax is due at this level.':'That is '+e.toFixed(1)+'% of your pay.')+' Salaried slabs, TY 2026-27. Estimate only; deductions and credits are not included.</p>';$('go2').classList.remove('ready');[].forEach.call(o.querySelectorAll('b[data-v]'),function(b){cu(b,+b.dataset.v,f,800)})}
+function press(k){if(k==='='){calc();return}if(k==='C')dg='';else if(k==='B')dg=dg.slice(0,-1);else dg=(dg+k).replace(/^0+/,'').slice(0,10);show();$('out').innerHTML='';bump();$('go2').classList.toggle('ready',!!dg)}
+document.querySelectorAll('.keys button').forEach(function(b){b.addEventListener('click',function(){press(b.dataset.k)})});
+$('go2').addEventListener('click',calc);
+document.querySelectorAll('.tg button').forEach(function(b){b.addEventListener('click',function(){p=+b.dataset.p;b.parentNode.classList.toggle('yr',p===1);$('lb').textContent=(p===12?'Monthly':'Yearly')+' salary, PKR';document.querySelectorAll('.tg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('out').innerHTML=''})});
+$('calc').querySelector('.dev').addEventListener('keydown',function(e){if(e.target!==this)return;var k=e.key;if(/^\d$/.test(k))press(k);else if(k==='Backspace')press('B');else if(k==='Delete'||k==='Escape')press('C');else if(k==='Enter')press('=');else return;e.preventDefault()});
+show();
+(function(){var trk=$('trk'),sl=[].slice.call(trk.children),n=sl.length,idx=0,busy=false,hov=false,timer,swt=0,x0=null,y0=0,lead=$('lead'),tb=$('tb'),rm=RM,cl=sl[0].cloneNode(true);
+cl.removeAttribute('aria-label');cl.classList.remove('act');cl.setAttribute('aria-hidden','true');cl.setAttribute('inert','');trk.appendChild(cl);
+function mark(){var a=idx%n;sl.forEach(function(s,i){s.classList.toggle('act',i===a);if(i===a)s.removeAttribute('inert');else s.setAttribute('inert','')})}
+function move(an){trk.style.transition=an?'':'none';trk.style.transform='translateX(-'+idx*100+'%)'}
+function go(i){if(busy)return;busy=true;idx=i;move(true);mark();setTimeout(function(){if(idx>=n){idx=0;move(false);mark()}busy=false},rm?30:700)}
+function next(){go(idx+1)}
+function prev(){if(busy)return;if(idx===0){idx=n;move(false);void trk.offsetWidth}go(idx-1)}
+function bar(on){tb.style.animation='none';if(on){void tb.offsetWidth;tb.style.animation='fill 7s linear forwards'}}
+function sched(){clearTimeout(timer);if(hov||rm){bar(false);return}bar(true);timer=setTimeout(function(){next();sched()},7000)}
+lead.addEventListener('mouseenter',function(){hov=true;sched()});lead.addEventListener('mouseleave',function(){hov=false;sched()});
+lead.addEventListener('focusin',function(){hov=true;sched()});lead.addEventListener('focusout',function(){hov=false;sched()});
+lead.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){next();sched()}else if(e.key==='ArrowLeft'){prev();sched()}});
+var vp=lead.querySelector('.vp');
+vp.addEventListener('pointerdown',function(e){x0=e.clientX;y0=e.clientY});
+vp.addEventListener('pointercancel',function(){x0=null});
+vp.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0,dy=e.clientY-y0;x0=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.5){swt=Date.now();if(dx<0)next();else prev();sched()}});
+lead.addEventListener('click',function(e){if(Date.now()-swt<400){e.preventDefault();e.stopPropagation()}},true);
+trk.addEventListener('click',function(e){if(e.target.closest('a,.gl'))return;var s=e.target.closest('.slide');if(s&&s.dataset.href)location.href=s.dataset.href});
+$('nx').onclick=function(){next();sched()};$('pv').onclick=function(){prev();sched()};
+mark();sched()})();
+var pop=$('pop');
+document.querySelectorAll('.gl').forEach(function(g){g.addEventListener('click',function(e){e.stopPropagation();var r=g.getBoundingClientRect();pop.innerHTML='<b>'+g.textContent+'</b>'+g.dataset.d;pop.style.display='block';pop.style.left=Math.max(10,Math.min(r.left,innerWidth-310))+'px';pop.style.top=(r.bottom+8)+'px'})});
+document.addEventListener('click',function(){pop.style.display='none'});addEventListener('scroll',function(){pop.style.display='none'},{passive:true});
+$('go').addEventListener('click',function(){$('ok').textContent=/^\S+@\S+\.\S+$/.test($('em').value.trim())?'Preview only: nothing was sent.':'Please enter a valid email.'});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.id==='explain')drawSvg();if(e.target.classList.contains('cd'))cu($('cd'),Math.max(dd,0),function(v){return Math.round(v)},1200)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+var pg=$('prog');addEventListener('scroll',function(){var d=document.documentElement,m=d.scrollHeight-d.clientHeight;pg.style.width=(m>0?d.scrollTop/m*100:0)+'%'},{passive:true});
+
+var pe=[].slice.call(document.querySelectorAll('.pic path,.pic circle,.pic ellipse'));
+if(!RM)pe.forEach(function(el){var l=el.getTotalLength?Math.ceil(el.getTotalLength())+1:0;if(!l)return;el.style.strokeDasharray=l;el.style.strokeDashoffset=l;el._l=l});
+function drawSvg(){pe.forEach(function(el,i){if(!el._l)return;el.style.transition='stroke-dashoffset 1.4s ease '+(i*.07)+'s';el.style.strokeDashoffset=0})}
+</script>
+</body>
+</html>
